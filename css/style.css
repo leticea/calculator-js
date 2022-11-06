@@ -70,3 +70,12 @@ body {
     background-color: #bababa;
     border-color: #999;
 }
+
+#buttons-container #equal-btn {
+    grid-column: span 2;
+    background-color: #75a5cb;
+}
+
+#buttons-container #equal-btn:hover {
+    background-color: #3a91d8;
+}
