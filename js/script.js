@@ -28,12 +28,23 @@ class Calculator {
 
     // [processar todas as operações da calculadora]
     processOperation(operation) {
-        console.log(operation);
+
+        // [pegar o valor antigo e atual]
+        let operationValue;
+        const previous = +this.previousOperationText.innerText;
+        const current = +this.currentOperationText.innerText;
+
+        switch(operation) {
+
+            case "+":
+                break;
+            default:
+                return;
+        }
     }
 
-
     // [muda os valores da calculadora]
-    updateScreen() {
+    updateScreen(operationValue = null, operation = null, current = null, previous = null) {
 
         this.currentOperationText.innerText += this.currentOperation;
     }
