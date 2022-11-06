@@ -61,3 +61,12 @@ body {
     background-color: #dbdbdb;
     cursor: pointer;
 }
+
+#buttons-container .number {
+    background-color: #f3f3f3;    
+}
+
+#buttons-container button:hover {
+    background-color: #bababa;
+    border-color: #999;
+}
