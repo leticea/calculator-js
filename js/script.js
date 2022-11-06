@@ -37,6 +37,9 @@ class Calculator {
         switch(operation) {
 
             case "+":
+                operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous);
+
                 break;
             default:
                 return;
@@ -46,7 +49,22 @@ class Calculator {
     // [muda os valores da calculadora]
     updateScreen(operationValue = null, operation = null, current = null, previous = null) {
 
-        this.currentOperationText.innerText += this.currentOperation;
+        console.log(operationValue, operation, current, previous);
+
+        if (operationValue === null) {
+
+            this.currentOperationText.innerText += this.currentOperation;
+
+        } else {
+            // [checa se o valor é zero e se for adiciona o valor atual]
+            if (previous === 0) {
+
+                operationValue = current;
+            }
+
+            //[adiciona o valor atual ao anterior]
+            this.previousOperationText.innerText = `${operationValue}`;
+        }
     }
 };
 
