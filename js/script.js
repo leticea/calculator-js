@@ -13,10 +13,17 @@ class Calculator {
         this.currentOperation = "";
     }
 
-    // [mostra os dígitos na tela]
+    // [adiciona os dígitos na calculadora]
     addDigit(digit) {
 
-        console.log(digit);
+        this.currentOperation = digit;
+        this.updateScreen()
+    }
+
+    // [muda os valores da calculadora]
+    updateScreen() {
+
+        this.currentOperationText.innerText += this.currentOperation;
     }
 };
 
@@ -28,7 +35,7 @@ buttons.forEach((btn) => {
 
         const value = e.target.innerText;
         
-        if (value >= 0 || value === ".") {
+        if (+value >= 0 || value === ".") {
 
             calc.addDigit(value);
 
