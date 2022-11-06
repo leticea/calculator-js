@@ -31,7 +31,7 @@ class Calculator {
 
         // [pegar o valor antigo e atual]
         let operationValue;
-        const previous = +this.previousOperationText.innerText;
+        const previous = +this.previousOperationText.innerText.split(" ")[0];
         const current = +this.currentOperationText.innerText;
 
         switch(operation) {
@@ -39,8 +39,8 @@ class Calculator {
             case "+":
                 operationValue = previous + current;
                 this.updateScreen(operationValue, operation, current, previous);
-
                 break;
+
             default:
                 return;
         }
@@ -61,9 +61,9 @@ class Calculator {
 
                 operationValue = current;
             }
-
             //[adiciona o valor atual ao anterior]
-            this.previousOperationText.innerText = `${operationValue}`;
+            this.previousOperationText.innerText = `${operationValue} ${operation}`;
+            this.currentOperationText.innerText = "";
         }
     }
 };
