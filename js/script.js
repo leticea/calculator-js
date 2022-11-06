@@ -4,6 +4,12 @@ const buttons = document.querySelectorAll("#buttons-container button");
 
 class Calculator {
 
+    constructor(previousOperationText, currentOperationText) {
+
+        this.previousOperationText = previousOperationText;
+        this.currentOperationText = currentOperationText;
+        this.currentOperation = "";
+    }
 }
 
 buttons.forEach((btn) => {
@@ -19,7 +25,6 @@ buttons.forEach((btn) => {
         } else {
 
             console.log("Op: " + value);
-        }
-                
+        }                
     });
 });
