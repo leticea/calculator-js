@@ -11,7 +11,7 @@ class Calculator {
         this.currentOperationText = currentOperationText;
         // [o valor que está sendo digitado]
         this.currentOperation = "";
-    }
+    };
 
     // [adiciona os dígitos na calculadora]
     addDigit(digit) {
@@ -24,10 +24,21 @@ class Calculator {
 
         this.currentOperation = digit;
         this.updateScreen()
-    }
+    };
 
     // [processar todas as operações da calculadora]
     processOperation(operation) {
+
+        // [checa se o valor atual é vazio]
+        if (this.currentOperationText.innerText === "") {
+
+            if (this.previousOperationText.innerText !== "") {
+                
+                this.changeOperation(operation);
+            }
+
+            return;
+        }
 
         // [pegar o valor antigo e atual]
         let operationValue;
@@ -40,11 +51,26 @@ class Calculator {
                 operationValue = previous + current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
+            
+            case "-":
+                operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+
+            case "*":
+                operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+
+            case "/":
+                operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
 
             default:
                 return;
         }
-    }
+    };
 
     // [muda os valores da calculadora]
     updateScreen(operationValue = null, operation = null, current = null, previous = null) {
@@ -65,6 +91,19 @@ class Calculator {
             this.previousOperationText.innerText = `${operationValue} ${operation}`;
             this.currentOperationText.innerText = "";
         }
+    };
+
+    // [muda a operação matemática]
+    changeOperation(operation) {
+
+        const mathOperations = ["*", "/", "+", "-"];
+
+        if (!mathOperations.includes(operation)) {
+
+            return;
+        }
+
+        this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation;
     }
 };
 
