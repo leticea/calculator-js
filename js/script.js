@@ -6,11 +6,21 @@ class Calculator {
 
     constructor(previousOperationText, currentOperationText) {
 
+        // [valores impressos na tela]
         this.previousOperationText = previousOperationText;
         this.currentOperationText = currentOperationText;
+        // [o valor que está sendo digitado]
         this.currentOperation = "";
     }
-}
+
+    // [mostra os dígitos na tela]
+    addDigit(digit) {
+
+        console.log(digit);
+    }
+};
+
+const calc = new Calculator(previousOperationText, currentOperationText);
 
 buttons.forEach((btn) => {
 
@@ -20,7 +30,7 @@ buttons.forEach((btn) => {
         
         if (value >= 0 || value === ".") {
 
-            console.log(value);
+            calc.addDigit(value);
 
         } else {
 
