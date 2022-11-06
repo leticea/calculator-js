@@ -32,9 +32,32 @@ body {
     text-align: right;
 }
 
-#previous-operation {
-    color: #777;
+#previous-operation, #current-operation {
+    min-height: 1.6em;
     padding: .2em;
     overflow-wrap: break-word;
-    min-height: 1.6em;
+}
+
+#previous-operation {
+    color: #777;
+}
+
+#current-operation {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+#buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;    
+}
+
+#buttons-container button {
+    border: 1px solid transparent;
+    border-radius: 0;
+    height: 4em;
+    font-size: 1.2em;
+    background-color: #dbdbdb;
+    cursor: pointer;
 }
